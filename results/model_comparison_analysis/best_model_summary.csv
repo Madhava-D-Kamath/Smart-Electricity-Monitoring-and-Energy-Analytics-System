@@ -1,0 +1,4 @@
+Evaluation Type,Metric,Best Model,Score
+Random Split,F1 Macro,Gradient Boosting,0.985184016564609
+Random Split,Balanced Accuracy,Gradient Boosting,0.9844768306326358
+Random Split,Accuracy,XGBoost,0.9958354156255206

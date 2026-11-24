@@ -1,0 +1,16 @@
+timestamp,node_id,appliance,voltage_V,current_A,power_W,energy_kWh,frequency_Hz,power_factor,timestamp_ist,epoch_ms,node
+2026-09-22 18:26:52,test_node,laptop charging,44.9,0.13,18.2,0.08,44.3,1.0,,,
+2026-09-22 18:36:26,test_node,laptop charging,0.1,0.0,0.0,0.09,59.6,0.0,,,
+2026-09-24 17:59:07,test_node,mobile charging,233.3,0.09,11.2,0.129,41.5,0.56,,,
+2026-09-24 18:02:47,test_node,mobile charging,115.8,0.13,9.4,0.129,29.3,0.61,,,
+2026-09-24 18:16:16,test_node,mobile charging,169.7,0.11,10.3,0.131,35.3,0.54,,,
+2026-10-27 21:35:11,test_node,iron box,5880.5,3430228.0,21322618.0,260641.766,3931.1,610.59,,,
+2026-10-27 21:36:41,test_node,iron box,71.2,0.0,0.0,0.174,50.0,0.0,,,
+,node2,table fan,239.8,0.056,7.5,0.002,50.0,0.56,No NTP Sync,0.0,node2
+,node2,table fan,752.2,3690883.75,366095648.0,2085896.25,50.0,621.3,No NTP Sync,0.0,node2
+,node2,table fan,239.5,0.234,38.6,0.084,50.0,0.69,No NTP Sync,0.0,node2
+,node2,table fan,242.9,0.247,47.0,0.008,50.0,0.78,No NTP Sync,0.0,node2
+,node2,table fan,239.5,0.274,48.0,0.084,50.0,0.73,No NTP Sync,0.0,node2
+,node2,table fan,242.9,0.261,50.7,0.008,50.0,0.8,No NTP Sync,0.0,node2
+,node2,table fan,239.5,0.229,38.3,0.084,50.0,0.7,No NTP Sync,0.0,node2
+2026-11-21 21:28:28,node2,table fan,79.7,0.077,13.8,0.012,50.0,1.0,2026-11-21 21:28:28,1795276708755.0,node2

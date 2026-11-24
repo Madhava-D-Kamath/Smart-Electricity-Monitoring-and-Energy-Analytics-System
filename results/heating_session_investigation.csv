@@ -1,0 +1,4 @@
+session_id,appliance,readings,min_power,max_power,avg_power,zero_readings
+14,iron box,205,0.0,921.1,154.93560975609756,97
+15,iron box,38,0.0,913.6,139.57894736842104,20
+16,kettle,277,0.0,611.1,530.1010830324909,21

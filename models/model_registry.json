@@ -1,0 +1,9 @@
+{
+  "Baseline (Most Frequent)": "baseline_most_frequent.joblib",
+  "Decision Tree": "decision_tree.joblib",
+  "Random Forest": "random_forest.joblib",
+  "Extra Trees": "extra_trees.joblib",
+  "Gradient Boosting": "gradient_boosting.joblib",
+  "Hist Gradient Boosting": "hist_gradient_boosting.joblib",
+  "XGBoost": "xgboost.joblib"
+}

@@ -1,0 +1,1 @@
+timestamp,node_id,appliance,voltage_V,current_A,power_W,energy_kWh,frequency_Hz,power_factor,timestamp_ist,epoch_ms,node

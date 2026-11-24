@@ -1,0 +1,359 @@
+{
+  "Baseline (Most Frequent)": {
+    "iron box": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 49.0
+    },
+    "kettle": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 111.0
+    },
+    "laptop charging": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 590.0
+    },
+    "mobile charging": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 1096.0
+    },
+    "phone_charger": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 228.0
+    },
+    "table fan": {
+      "precision": 0.6545060802931867,
+      "recall": 1.0,
+      "f1-score": 0.7911800241643173,
+      "support": 3929.0
+    },
+    "accuracy": 0.6545060802931867,
+    "macro avg": {
+      "precision": 0.10908434671553112,
+      "recall": 0.16666666666666666,
+      "f1-score": 0.13186333736071956,
+      "support": 6003.0
+    },
+    "weighted avg": {
+      "precision": 0.42837820914075136,
+      "recall": 0.6545060802931867,
+      "f1-score": 0.517832136422056,
+      "support": 6003.0
+    }
+  },
+  "Decision Tree": {
+    "iron box": {
+      "precision": 0.8867924528301887,
+      "recall": 0.9591836734693877,
+      "f1-score": 0.9215686274509803,
+      "support": 49.0
+    },
+    "kettle": {
+      "precision": 0.972972972972973,
+      "recall": 0.972972972972973,
+      "f1-score": 0.972972972972973,
+      "support": 111.0
+    },
+    "laptop charging": {
+      "precision": 1.0,
+      "recall": 0.9966101694915255,
+      "f1-score": 0.99830220713073,
+      "support": 590.0
+    },
+    "mobile charging": {
+      "precision": 0.9908675799086758,
+      "recall": 0.989963503649635,
+      "f1-score": 0.9904153354632588,
+      "support": 1096.0
+    },
+    "phone_charger": {
+      "precision": 0.961038961038961,
+      "recall": 0.9736842105263158,
+      "f1-score": 0.9673202614379085,
+      "support": 228.0
+    },
+    "table fan": {
+      "precision": 0.9959235668789809,
+      "recall": 0.9949096462204123,
+      "f1-score": 0.9954163483575248,
+      "support": 3929.0
+    },
+    "accuracy": 0.9926703315009162,
+    "macro avg": {
+      "precision": 0.9679325889382966,
+      "recall": 0.9812206960550416,
+      "f1-score": 0.9743326254688959,
+      "support": 6003.0
+    },
+    "weighted avg": {
+      "precision": 0.9927609986928181,
+      "recall": 0.9926703315009162,
+      "f1-score": 0.9927020198108475,
+      "support": 6003.0
+    }
+  },
+  "Random Forest": {
+    "iron box": {
+      "precision": 0.8867924528301887,
+      "recall": 0.9591836734693877,
+      "f1-score": 0.9215686274509803,
+      "support": 49.0
+    },
+    "kettle": {
+      "precision": 0.9814814814814815,
+      "recall": 0.954954954954955,
+      "f1-score": 0.9680365296803652,
+      "support": 111.0
+    },
+    "laptop charging": {
+      "precision": 1.0,
+      "recall": 0.9983050847457627,
+      "f1-score": 0.9991518235793045,
+      "support": 590.0
+    },
+    "mobile charging": {
+      "precision": 0.989100817438692,
+      "recall": 0.9936131386861314,
+      "f1-score": 0.9913518434228493,
+      "support": 1096.0
+    },
+    "phone_charger": {
+      "precision": 0.9781659388646288,
+      "recall": 0.9824561403508771,
+      "f1-score": 0.9803063457330415,
+      "support": 228.0
+    },
+    "table fan": {
+      "precision": 0.9977058373693601,
+      "recall": 0.9961822346653092,
+      "f1-score": 0.9969434538970963,
+      "support": 3929.0
+    },
+    "accuracy": 0.994336165250708,
+    "macro avg": {
+      "precision": 0.9722077546640585,
+      "recall": 0.9807825378120705,
+      "f1-score": 0.9762264372939397,
+      "support": 6003.0
+    },
+    "weighted avg": {
+      "precision": 0.994412766888436,
+      "recall": 0.994336165250708,
+      "f1-score": 0.9943579528621815,
+      "support": 6003.0
+    }
+  },
+  "Extra Trees": {
+    "iron box": {
+      "precision": 0.8846153846153846,
+      "recall": 0.9387755102040817,
+      "f1-score": 0.9108910891089109,
+      "support": 49.0
+    },
+    "kettle": {
+      "precision": 0.981651376146789,
+      "recall": 0.963963963963964,
+      "f1-score": 0.9727272727272728,
+      "support": 111.0
+    },
+    "laptop charging": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 590.0
+    },
+    "mobile charging": {
+      "precision": 0.9899909008189263,
+      "recall": 0.9927007299270073,
+      "f1-score": 0.9913439635535307,
+      "support": 1096.0
+    },
+    "phone_charger": {
+      "precision": 0.9955555555555555,
+      "recall": 0.9824561403508771,
+      "f1-score": 0.9889624724061811,
+      "support": 228.0
+    },
+    "table fan": {
+      "precision": 0.9977087576374746,
+      "recall": 0.9974548231102062,
+      "f1-score": 0.9975817742140766,
+      "support": 3929.0
+    },
+    "accuracy": 0.9951690821256038,
+    "macro avg": {
+      "precision": 0.9749203291290217,
+      "recall": 0.9792251945926894,
+      "f1-score": 0.9769177620016619,
+      "support": 6003.0
+    },
+    "weighted avg": {
+      "precision": 0.9952230317041971,
+      "recall": 0.9951690821256038,
+      "f1-score": 0.9951860085439697,
+      "support": 6003.0
+    }
+  },
+  "Gradient Boosting": {
+    "iron box": {
+      "precision": 0.9591836734693877,
+      "recall": 0.9591836734693877,
+      "f1-score": 0.9591836734693877,
+      "support": 49.0
+    },
+    "kettle": {
+      "precision": 0.9818181818181818,
+      "recall": 0.972972972972973,
+      "f1-score": 0.9773755656108597,
+      "support": 111.0
+    },
+    "laptop charging": {
+      "precision": 1.0,
+      "recall": 0.9966101694915255,
+      "f1-score": 0.99830220713073,
+      "support": 590.0
+    },
+    "mobile charging": {
+      "precision": 0.9954044117647058,
+      "recall": 0.9881386861313869,
+      "f1-score": 0.9917582417582418,
+      "support": 1096.0
+    },
+    "phone_charger": {
+      "precision": 0.9826086956521739,
+      "recall": 0.9912280701754386,
+      "f1-score": 0.9868995633187773,
+      "support": 228.0
+    },
+    "table fan": {
+      "precision": 0.9964448958862366,
+      "recall": 0.998727411555103,
+      "f1-score": 0.9975848480996568,
+      "support": 3929.0
+    },
+    "accuracy": 0.9955022488755623,
+    "macro avg": {
+      "precision": 0.985909976431781,
+      "recall": 0.9844768306326358,
+      "f1-score": 0.985184016564609,
+      "support": 6003.0
+    },
+    "weighted avg": {
+      "precision": 0.9955042198936623,
+      "recall": 0.9955022488755623,
+      "f1-score": 0.9954985826382144,
+      "support": 6003.0
+    }
+  },
+  "Hist Gradient Boosting": {
+    "iron box": {
+      "precision": 1.0,
+      "recall": 0.7959183673469388,
+      "f1-score": 0.8863636363636364,
+      "support": 49.0
+    },
+    "kettle": {
+      "precision": 0.9557522123893806,
+      "recall": 0.972972972972973,
+      "f1-score": 0.9642857142857143,
+      "support": 111.0
+    },
+    "laptop charging": {
+      "precision": 0.9966159052453468,
+      "recall": 0.9983050847457627,
+      "f1-score": 0.9974597798475868,
+      "support": 590.0
+    },
+    "mobile charging": {
+      "precision": 0.993607305936073,
+      "recall": 0.9927007299270073,
+      "f1-score": 0.9931538110451849,
+      "support": 1096.0
+    },
+    "phone_charger": {
+      "precision": 0.9826839826839827,
+      "recall": 0.9956140350877193,
+      "f1-score": 0.9891067538126361,
+      "support": 228.0
+    },
+    "table fan": {
+      "precision": 0.9972038637519065,
+      "recall": 0.9984728938661237,
+      "f1-score": 0.9978379753274832,
+      "support": 3929.0
+    },
+    "accuracy": 0.9951690821256038,
+    "macro avg": {
+      "precision": 0.9876438783344482,
+      "recall": 0.9589973473244209,
+      "f1-score": 0.971367945113707,
+      "support": 6003.0
+    },
+    "weighted avg": {
+      "precision": 0.9951943054654507,
+      "recall": 0.9951690821256038,
+      "f1-score": 0.9950836455795592,
+      "support": 6003.0
+    }
+  },
+  "XGBoost": {
+    "iron box": {
+      "precision": 0.9387755102040817,
+      "recall": 0.9387755102040817,
+      "f1-score": 0.9387755102040817,
+      "support": 49.0
+    },
+    "kettle": {
+      "precision": 0.9819819819819819,
+      "recall": 0.9819819819819819,
+      "f1-score": 0.9819819819819819,
+      "support": 111.0
+    },
+    "laptop charging": {
+      "precision": 1.0,
+      "recall": 0.9983050847457627,
+      "f1-score": 0.9991518235793045,
+      "support": 590.0
+    },
+    "mobile charging": {
+      "precision": 0.9963201471941122,
+      "recall": 0.9881386861313869,
+      "f1-score": 0.9922125515345854,
+      "support": 1096.0
+    },
+    "phone_charger": {
+      "precision": 0.9826839826839827,
+      "recall": 0.9956140350877193,
+      "f1-score": 0.9891067538126361,
+      "support": 228.0
+    },
+    "table fan": {
+      "precision": 0.9969512195121951,
+      "recall": 0.998727411555103,
+      "f1-score": 0.9978385251112524,
+      "support": 3929.0
+    },
+    "accuracy": 0.9958354156255206,
+    "macro avg": {
+      "precision": 0.982785473596059,
+      "recall": 0.9835904516176726,
+      "f1-score": 0.9831778577039736,
+      "support": 6003.0
+    },
+    "weighted avg": {
+      "precision": 0.9958421074196417,
+      "recall": 0.9958354156255206,
+      "f1-score": 0.9958334894927681,
+      "support": 6003.0
+    }
+  }
+}
