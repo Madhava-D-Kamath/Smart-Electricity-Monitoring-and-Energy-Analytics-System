@@ -850,6 +850,10 @@ def get_appliance_meta(appliance_name):
         return {"icon": "🫖", "color": "#ec4899", "type": "Thermal Heating Element", "name": "Electric Kettle"}
     elif "refrigerator" in name_clean or "fridge" in name_clean:
         return {"icon": "❄️", "color": "#38bdf8", "type": "Compressor Motor Unit", "name": "Refrigerator"}
+    elif "mixer" in name_clean or "grinder" in name_clean:
+        return {"icon": "🌪️", "color": "#f97316", "type": "Universal Motor Load", "name": "Mixer Grinder"}
+    elif "washing" in name_clean or "washer" in name_clean:
+        return {"icon": "🧺", "color": "#0ea5e9", "type": "Inverter Drum Motor", "name": "Washing Machine"}
     elif "bulb" in name_clean or "light" in name_clean:
         return {"icon": "💡", "color": "#fbbf24", "type": "Lighting Luminaire", "name": "LED / Incandescent Lamp"}
     elif "tv" in name_clean or "television" in name_clean:

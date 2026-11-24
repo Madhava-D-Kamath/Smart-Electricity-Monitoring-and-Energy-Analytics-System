@@ -549,14 +549,20 @@ X = [voltage\_V,\ current\_A,\ power\_W,\ frequency\_Hz,\ power\_factor]
 
 ### 2. Appliance Categories
 
-The system identifies appliance categories including:
+The system features robust electrical signature profiles across both trained household devices and newly integrated expansion appliances:
 
-- Table Fan.
-- Laptop Charger.
-- Phone Charger.
-- Mobile Charger.
-- Electric Kettle.
-- Iron Box.
+#### 🟢 Active & Trained Appliances (30,000+ Recorded Sensor Samples)
+* 🌀 **Table Fan:** Inductive single-phase motor ($7\text{W} - 35\text{W}$, lagging power factor).
+* 📱 **Mobile Charger / Phone Charger:** Low-power adaptive SMPS converter ($5\text{W} - 18\text{W}$).
+* 💻 **Laptop Charger:** Switched-mode power supply with active power factor correction ($45\text{W} - 90\text{W}$).
+* 🫖 **Electric Kettle:** High-current thermal heating element ($1200\text{W} - 1800\text{W}$, near-unity power factor).
+* 👔 **Electric Iron Box:** Thermostatically switched high-wattage resistive heating load ($1000\text{W} - 1500\text{W}$).
+
+#### 🚀 Integrated Expansion Appliances (Dataset Schemas & Dashboard UI Ready)
+* 🌪️ **Mixer Grinder:** High-speed universal motor with inductive surge characteristics (`dataset/new_appliances/mixer_grinder/`).
+* ❄️ **Refrigerator:** Compressor motor unit with cyclic cooling duty cycles (`dataset/new_appliances/refrigerator/`).
+* 📺 **Television:** Entertainment LED display with SMPS power supply (`dataset/new_appliances/television/`).
+* 🧺 **Washing Machine:** Multi-cycle inverter drum motor with dynamic current draw (`dataset/new_appliances/washing_machine/`).
 
 ### 3. Model Benchmark Summary
 
