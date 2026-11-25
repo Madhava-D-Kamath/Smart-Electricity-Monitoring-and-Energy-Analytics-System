@@ -1680,7 +1680,18 @@ def display_mescom_bill_estimator():
 
     eligible_for_subsidy = st.checkbox("Apply Gruha Jyothi / Government Subsidy Credit", value=False)
     if eligible_for_subsidy:
-        subsidy_amount = st.number_input("Subsidy / Credit Amount (₹)", min_value=0.0, max_value=float(gross_bill), value=0.0, step=10.0)
+        # Under Karnataka Gruha Jyothi, residential consumption under 200 units qualifies for 100% bill subsidy
+        auto_subsidy = float(gross_bill) if monthly_units <= 200.0 else 0.0
+        subsidy_amount = st.number_input(
+            "Subsidy / Credit Amount (₹)", 
+            min_value=0.0, 
+            max_value=float(gross_bill), 
+            value=auto_subsidy, 
+            step=10.0,
+            help="Under Karnataka Gruha Jyothi, consumption under 200 units is 100% subsidized."
+        )
+        if monthly_units <= 200.0 and subsidy_amount >= float(gross_bill) - 0.5:
+            st.success("🎉 **Gruha Jyothi Applied (< 200 Units):** 100% Government Subsidy — Net Bill is **₹ 0.00**!")
     else:
         subsidy_amount = 0.0
 
