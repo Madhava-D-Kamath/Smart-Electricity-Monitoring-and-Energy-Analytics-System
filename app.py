@@ -5,6 +5,7 @@ import pandas as pd
 import joblib
 import firebase_admin
 import altair as alt
+alt.data_transformers.disable_max_rows()
 
 from firebase_admin import credentials, firestore
 from pathlib import Path
@@ -1231,14 +1232,32 @@ def predict_appliance(model, reading):
 
 def prepare_ist_graph_data(df):
     graph_df = df.copy()
-    graph_df["timestamp"] = pd.to_datetime(graph_df["timestamp"], utc=True, errors="coerce")
-    graph_df["timestamp"] = (
-        graph_df["timestamp"]
-        .dt.tz_convert(TIMEZONE)
-        .dt.tz_localize(None)
-    )
-    graph_df = graph_df.dropna(subset=["timestamp"])
-    return graph_df.sort_values("timestamp")
+    if "timestamp" in graph_df.columns:
+        graph_df["timestamp"] = pd.to_datetime(graph_df["timestamp"], utc=True, errors="coerce")
+        try:
+            graph_df["timestamp"] = (
+                graph_df["timestamp"]
+                .dt.tz_convert(TIMEZONE)
+                .dt.tz_localize(None)
+            )
+        except Exception:
+            pass
+        graph_df = graph_df.dropna(subset=["timestamp"])
+        return graph_df.sort_values("timestamp")
+    elif "timestamp_ist" in graph_df.columns:
+        graph_df["timestamp"] = pd.to_datetime(graph_df["timestamp_ist"], errors="coerce")
+        graph_df = graph_df.dropna(subset=["timestamp"])
+        return graph_df.sort_values("timestamp")
+    else:
+        # Fallback for offline ML-ready datasets lacking explicit timestamps
+        n = len(graph_df)
+        if n == 0:
+            graph_df["timestamp"] = pd.Series(dtype="datetime64[ns]")
+            return graph_df
+        end_time = pd.Timestamp.now().floor("s")
+        start_time = end_time - pd.Timedelta(seconds=max(n * 2, 2))
+        graph_df["timestamp"] = pd.date_range(start=start_time, periods=n, freq="2s")
+        return graph_df
 
 
 # =====================================================
@@ -1251,6 +1270,9 @@ def display_electricity_analytics(df, model=None):
         return
 
     df = prepare_ist_graph_data(df)
+
+    # For smooth and responsive rendering, sample up to 500 points for continuous curves
+    plot_df = df if len(df) <= 500 else df.iloc[::max(1, len(df) // 500)].copy()
 
     # =================================================
     # 1. ELECTRICAL MONITORING
@@ -1267,8 +1289,8 @@ def display_electricity_analytics(df, model=None):
     """)
 
     # --- Active Power Curve ---
-    if "power_W" in df.columns:
-        power_df = df[["timestamp", "power_W"]].copy()
+    if "power_W" in plot_df.columns:
+        power_df = plot_df[["timestamp", "power_W"]].copy()
         power_df["power_W"] = pd.to_numeric(power_df["power_W"], errors="coerce").dropna()
 
         if not power_df.empty:
@@ -1304,8 +1326,8 @@ def display_electricity_analytics(df, model=None):
     # --- Voltage & Current Row ---
     col1, col2 = st.columns(2)
 
-    if "voltage_V" in df.columns:
-        voltage_df = df[["timestamp", "voltage_V"]].copy()
+    if "voltage_V" in plot_df.columns:
+        voltage_df = plot_df[["timestamp", "voltage_V"]].copy()
         voltage_df["voltage_V"] = pd.to_numeric(voltage_df["voltage_V"], errors="coerce").dropna()
 
         with col1:
@@ -1339,8 +1361,8 @@ def display_electricity_analytics(df, model=None):
                 st.altair_chart(voltage_chart, use_container_width=True)
                 st.caption(f"Min: {voltage_df['voltage_V'].min():.2f} V | Max: {voltage_df['voltage_V'].max():.2f} V | Avg: {voltage_df['voltage_V'].mean():.2f} V")
 
-    if "current_A" in df.columns:
-        current_df = df[["timestamp", "current_A"]].copy()
+    if "current_A" in plot_df.columns:
+        current_df = plot_df[["timestamp", "current_A"]].copy()
         current_df["current_A"] = pd.to_numeric(current_df["current_A"], errors="coerce").dropna()
 
         with col2:
@@ -1375,8 +1397,8 @@ def display_electricity_analytics(df, model=None):
                 st.caption(f"Max: {current_df['current_A'].max():.3f} A | Avg: {current_df['current_A'].mean():.3f} A")
 
     # --- NEW: Frequency Monitoring ---
-    if "frequency_Hz" in df.columns:
-        freq_df = df[["timestamp", "frequency_Hz"]].copy()
+    if "frequency_Hz" in plot_df.columns:
+        freq_df = plot_df[["timestamp", "frequency_Hz"]].copy()
         freq_df["frequency_Hz"] = pd.to_numeric(freq_df["frequency_Hz"], errors="coerce").dropna()
 
         if not freq_df.empty:
@@ -1433,8 +1455,8 @@ def display_electricity_analytics(df, model=None):
     # --- NEW: Active vs Apparent Power ---
     with pq_col1:
         st.markdown("##### ⚡ Active vs Apparent Power (New)")
-        if "voltage_V" in df.columns and "current_A" in df.columns and "power_W" in df.columns:
-            pq_df = df[["timestamp", "voltage_V", "current_A", "power_W"]].copy()
+        if "voltage_V" in plot_df.columns and "current_A" in plot_df.columns and "power_W" in plot_df.columns:
+            pq_df = plot_df[["timestamp", "voltage_V", "current_A", "power_W"]].copy()
             pq_df["power_W"] = pd.to_numeric(pq_df["power_W"], errors="coerce")
             pq_df["apparent_power_VA"] = pd.to_numeric(pq_df["voltage_V"], errors="coerce") * pd.to_numeric(pq_df["current_A"], errors="coerce")
             pq_df = pq_df.dropna(subset=["timestamp", "power_W", "apparent_power_VA"])
@@ -1476,8 +1498,8 @@ def display_electricity_analytics(df, model=None):
     # --- NEW: Power Factor Trend ---
     with pq_col2:
         st.markdown("##### 🎯 Power Factor Trend (New)")
-        if "power_factor" in df.columns:
-            pf_df = df[["timestamp", "power_factor"]].copy()
+        if "power_factor" in plot_df.columns:
+            pf_df = plot_df[["timestamp", "power_factor"]].copy()
             pf_df["power_factor"] = pd.to_numeric(pf_df["power_factor"], errors="coerce").dropna()
 
             if not pf_df.empty:
